@@ -9,5 +9,5 @@ let user = class User{
 }
 
 module.exports = {
-    user,
+    user
 }
