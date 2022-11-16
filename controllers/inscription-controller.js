@@ -1,4 +1,5 @@
 const {user} = require("../models/user");
+const {body, validationResult} = require("express-validator");
 
 let monUser = new user(1, "Lenon", "Jhon", "Jhon@lenon.com", "0796096058");
 
@@ -9,6 +10,14 @@ const registerView = (req, res) => {
     });
 }
 
+const getRegisterForm = (req, res) => {
+    console.log("test"); // Quand il recoit le form
+    res.render("inscription", {
+        user: monUser,
+    });
+}
+
 module.exports = {
-    registerView
+    registerView,
+    getRegisterForm
 }
