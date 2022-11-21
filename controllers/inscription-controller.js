@@ -12,14 +12,20 @@ const getRegisterForm = (req, res) => {
     console.log("Un form a été recu");
 
     (async () => {
-        await sequelize.sync({ force: true });
-        const user = User.create({ idUser: 1, nomUser: "Ette", prenomUser: "Jane", emailUser: "Jane.ette@gmail.com", telUser: "0796096058", mdpUser: "MonMdp", adminUser: false })
+        try{
+            await sequelize.sync({ force: true });
+            const user = User.create({nomUser: req.body.nom, prenomUser: req.body.prenom, emailUser: req.body.email, telUser: req.body.tel, mdpUser: req.body.mdp, adminUser: false })
+            res.render("inscription", {
+                submit: true,
+                user: user
+            })
+        }catch{
+            res.render("inscription", {
+                submit: true,
+                error: true
+            })
+        }
     })();
-
-    res.render("inscription", {
-        submit: true,
-        user: user
-    })
 }
 
 module.exports = {
