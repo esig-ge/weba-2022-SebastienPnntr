@@ -13,8 +13,10 @@ const getRegisterForm = (req, res) => {
 
     (async () => {
         try{
-            await sequelize.sync({ force: true });
-            const user = User.create({nomUser: req.body.nom, prenomUser: req.body.prenom, emailUser: req.body.email, telUser: req.body.tel, mdpUser: req.body.mdp, adminUser: false })
+            // Genère la table si elle n'existe pas encore
+            await sequelize.sync({});
+            // Créer un nouvel utilisateur
+            let user = User.create({nomUser: req.body.nom, prenomUser: req.body.prenom, emailUser: req.body.email, telUser: req.body.tel, mdpUser: req.body.mdp, adminUser: false })
             res.render("inscription", {
                 submit: true,
                 user: user
