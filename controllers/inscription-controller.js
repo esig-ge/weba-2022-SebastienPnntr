@@ -35,9 +35,7 @@ const getRegisterForm = async(req, res) => {
 
             // Créer un nouvel utilisateur si l'email n'est pas déjà utilisé et renvois sur la page
             let user = await User.create({nomUser: req.body.nom, prenomUser: req.body.prenom, emailUser: req.body.email, telUser: req.body.tel, mdpUser: hash, adminUser: false })
-            res.render("connexion", {
-                newUser: true
-            })
+            res.redirect('/connexion/?new=true');
         }
     }catch{
         res.render("inscription", {

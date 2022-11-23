@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Import controllers
-const { loginView } = require('../controllers/connexion-controller.js');
+const { loginView, getLoginForm} = require('../controllers/connexion-controller.js');
 const { registerView, getRegisterForm } = require('../controllers/inscription-controller.js')
 
 // Router GET
@@ -14,7 +14,8 @@ router.get('/inscription', registerView);
 router.get('/connexion', loginView);
 
 // Router POST
-router.post('/inscription', urlencodedParser, getRegisterForm)
+router.post('/inscription', urlencodedParser, getRegisterForm);
+router.post('/connexion', urlencodedParser, getLoginForm);
 
 // Default root
 router.get('/', (req, res) => {

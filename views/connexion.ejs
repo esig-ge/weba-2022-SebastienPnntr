@@ -10,7 +10,12 @@
     <div class="box">
         <div class="form">
             <form action="#" method="post">
-                <h2>Connexion</h2>
+                <div style="text-align: center;">
+                    <h2>Connexion</h2>
+                    <% if(locals.newUser){ %>
+                    <p style="color: lime;">Votre compte a bien été créé!</p>
+                    <% } %>
+                </div>
                 <div class="inputBox">
                     <input type="email" name="email" required>
                     <span>Adresse email</span>
@@ -23,7 +28,7 @@
                 </div>
                 <div class="links">
                     <a href="https://github.com/esig-ge/weba-2022-SebastienPnntr" target="_blank">Repos GIT</a>
-                    <a href="inscription">Inscription</a>
+                    <a href="../inscription">Inscription</a>
                 </div>
                 <input type="submit" value="Connexion">
             </form>
