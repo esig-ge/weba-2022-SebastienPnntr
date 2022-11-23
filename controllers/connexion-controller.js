@@ -26,8 +26,8 @@ const getLoginForm = async(req, res) => {
             // Si l'utilisateur est trouvé
             let mdpValid = await bcrypt.compare(req.body.mdp, user.dataValues.mdpUser);
             if(mdpValid){
-                // Si le mot de passe est le bon
-                
+                // Si le mot de passe est le bon, renvois sur la page de liste client
+                res.redirect("../liste-client");
             }else{
                 // Si le mot de passe n'est pas le bon
                 res.render("connexion", {
@@ -41,8 +41,11 @@ const getLoginForm = async(req, res) => {
                 error: "Email ou mot de passe incorrecte!"
             })
         }
-    }catch{
-        console.log("aaa");
+    }catch (error){
+        console.error(error);
+        res.render("connexion", {
+            error: "Une erreur est survenue, merci de reassayer ulterieurement."
+        })
     }
 }
 

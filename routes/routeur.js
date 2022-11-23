@@ -7,7 +7,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 // Import controllers
 const { loginView, getLoginForm} = require('../controllers/connexion-controller.js');
 const { registerView, getRegisterForm } = require('../controllers/inscription-controller.js')
-const { listeClientView } = require('../controllers/liste-client-constroller')
+const { listeClientView } = require('../controllers/liste-client-controller')
 
 // Router GET
 const router = express.Router();
