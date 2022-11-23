@@ -11,5 +11,5 @@ app.use(express.static(__dirname + '/public'));
 
 // Ecoute sur le port
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Le serveur est disponible sur le port ${port}`)
 })

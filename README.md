@@ -10,3 +10,5 @@
 - [Documentation de Sequelize](https://sequelize.org/docs/v6/getting-started/)
 - [Video pour comprendre Sequelize](https://www.youtube.com/watch?v=bWFuEVmRgdk)
 - [Documentation d'Express](https://expressjs.com/en/starter/installing.html)
+- [Style des messages d'erreurs](https://codepen.io/roydigerhund/pen/grgKbj)
+- [Style formulaire](https://codepen.io/Basel-a-k/pen/bGMxpQN)
