@@ -14,3 +14,4 @@
 - [Style des messages d'erreurs](https://codepen.io/roydigerhund/pen/grgKbj)
 - [Style formulaire](https://codepen.io/Basel-a-k/pen/bGMxpQN)
 - [Video pour comprendre Bcrypt](https://www.youtube.com/watch?v=_XxrfGrdrB8)
+- [Video pour comprendre les sessions](https://www.youtube.com/watch?v=oYGhoHW7zqI)
