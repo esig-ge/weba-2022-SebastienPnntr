@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Connexion</title>
     <link rel="stylesheet" href="/css/connexion.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 
 <body>
@@ -13,8 +14,8 @@
                 <div style="text-align: center;">
                     <h2>Connexion</h2>
                     <% if(locals.newUser){ %>
-                    <p style="color: lime;">Votre compte a bien été créé!</p>
-                    <% } %>
+                        <p style="color: lime;">Votre compte a bien été créé!</p>
+                        <% } %>
                 </div>
                 <div class="inputBox">
                     <input type="email" name="email" required>
@@ -33,23 +34,25 @@
                 <input type="submit" value="Connexion">
             </form>
             <% if(locals.error){ %>
-            <div class="modal">
-                <img class="imgModal" src="https://100dayscss.com/codepen/alert.png" width="44" height="38" />
+                <div class="modal">
+                    <img class="imgModal" src="https://100dayscss.com/codepen/alert.png" width="44" height="38" />
                     <span class="titleModal">Erreur!</span>
-                    <p class="textModal"><%= error %></p>
+                    <p class="textModal">
+                        <%= error %>
+                    </p>
                     <div class="buttonModal" onclick="hideModal()">Dismiss</div>
-            </div>
-            <% } %>
+                </div>
+                <% } %>
         </div>
     </div>
 </body>
 
 <% if(locals.error){ %>
-<script>
-    function hideModal(){
-        document.getElementsByClassName("modal")[0].classList.add("hideModal")
-    }
-</script>
-<% } %>
+    <script>
+        function hideModal() {
+            document.getElementsByClassName("modal")[0].classList.add("hideModal")
+        }
+    </script>
+    <% } %>
 
 </html>
