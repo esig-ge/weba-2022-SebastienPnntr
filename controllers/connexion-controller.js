@@ -4,13 +4,18 @@ const bcrypt = require('bcryptjs');
 
 // Affiche la page connexion.ejs avec les données définies en paramètres
 const loginView = async(req, res) => {
-    var newUser = req.query.new;
-    if(newUser){
-        res.render("connexion", {
-            newUser: true
-        });
-    }else{
-        res.render("connexion");
+    if(req.session.user){
+        res.redirect('accueil');
+    }
+    else{
+        var newUser = req.query.new;
+        if(newUser){
+            res.render("connexion", {
+                newUser: true
+            });
+        }else{
+            res.render("connexion");
+        }
     }
 }
 
@@ -27,7 +32,8 @@ const getLoginForm = async(req, res) => {
             let mdpValid = await bcrypt.compare(req.body.mdp, user.dataValues.mdpUser);
             if(mdpValid){
                 // Si le mot de passe est le bon, renvois sur la page de liste client
-                res.redirect("../accueil");
+                req.session.user = user;
+                await res.redirect("../accueil");
             }else{
                 // Si le mot de passe n'est pas le bon
                 res.render("connexion", {

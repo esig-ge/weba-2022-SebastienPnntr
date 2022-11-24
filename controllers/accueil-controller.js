@@ -3,7 +3,14 @@ const { sequelize } = require('../models/database');
 
 // Affiche la page connexion.ejs avec les données définies en paramètres
 const accueilView = async(req, res) => {
-    res.render('accueil');
+    if(req.session.user){
+        res.render('accueil', {
+            user: req.session.user
+        });
+    }
+    else{
+        res.render('accueil');
+    }
 }
 
 module.exports = {

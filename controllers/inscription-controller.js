@@ -4,7 +4,12 @@ const bcrypt = require('bcryptjs');
 
 // Affichage de la page inscription.ejs avec les données définies en paramètres
 const registerView = async(req, res) => {
-    res.render("inscription");
+    if(req.session.user){
+        res.redirect("accueil");
+    }
+    else{
+        res.render("inscription");
+    }
 }
 
 const getRegisterForm = async(req, res) => {

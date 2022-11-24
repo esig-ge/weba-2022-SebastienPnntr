@@ -9,6 +9,7 @@ const { loginView, getLoginForm} = require('../controllers/connexion-controller.
 const { registerView, getRegisterForm } = require('../controllers/inscription-controller.js')
 const { listeClientView } = require('../controllers/liste-client-controller')
 const { accueilView } = require('../controllers/accueil-controller')
+const { deco } = require('../controllers/deco-controller')
 
 // Router GET
 const router = express.Router();
@@ -16,6 +17,7 @@ router.get('/inscription', registerView);
 router.get('/connexion', loginView);
 router.get('/liste-client', listeClientView);
 router.get('/accueil', accueilView);
+router.get('/deco', deco);
 
 // Router POST
 router.post('/inscription', urlencodedParser, getRegisterForm);
