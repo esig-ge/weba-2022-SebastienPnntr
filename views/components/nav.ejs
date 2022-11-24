@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <a href="accueil" class="logo">Sebastien Pannatier</a>
+  <div class="nav-links">
+    <ul class="nav-menu">
+      <li><a href="accueil">Accueil</a></li>
+      <% if(locals.user != undefined){ %>
+      <li><a href="liste-client">Liste des clients</a></li>
+      <li><a href="deco">Deconnexion</a></li>
+      <% }else{ %>
+      <li><a href="connexion">Connexion</a></li>
+      <li><a href="inscription">Inscription</a></li>
+      <% } %>
+    </ul>
+  </div>
+    <i class='menu-hamburger'>Menu</i>
+
+</nav>
+<header class="header"></header>
+<script>
+  const menuHamburger = document.querySelector(".menu-hamburger");
+const navLinks = document.querySelector(".nav-links");
+ 
+ menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+        })
+</script>

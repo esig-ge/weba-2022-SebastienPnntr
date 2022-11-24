@@ -27,7 +27,7 @@ const getLoginForm = async(req, res) => {
             let mdpValid = await bcrypt.compare(req.body.mdp, user.dataValues.mdpUser);
             if(mdpValid){
                 // Si le mot de passe est le bon, renvois sur la page de liste client
-                res.redirect("../liste-client");
+                res.redirect("../accueil");
             }else{
                 // Si le mot de passe n'est pas le bon
                 res.render("connexion", {

@@ -8,12 +8,14 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const { loginView, getLoginForm} = require('../controllers/connexion-controller.js');
 const { registerView, getRegisterForm } = require('../controllers/inscription-controller.js')
 const { listeClientView } = require('../controllers/liste-client-controller')
+const { accueilView } = require('../controllers/accueil-controller')
 
 // Router GET
 const router = express.Router();
 router.get('/inscription', registerView);
 router.get('/connexion', loginView);
 router.get('/liste-client', listeClientView);
+router.get('/accueil', accueilView);
 
 // Router POST
 router.post('/inscription', urlencodedParser, getRegisterForm);
@@ -21,7 +23,7 @@ router.post('/connexion', urlencodedParser, getLoginForm);
 
 // Default root
 router.get('/', (req, res) => {
-    res.redirect("inscription");
+    res.redirect("accueil");
 })
 
 module.exports = router;
