@@ -8,8 +8,11 @@ const listeClientView = async (req, res) => {
         throw 'Vous n\'etes pas connecté';
     }
 
+    let userList = await User.findAll();
+
     res.render('liste-client', {
-        user: req.session.user
+        user: req.session.user,
+        userList: userList
     });
 }
 
