@@ -18,6 +18,13 @@ app.use('/', require('./routes/routeur'));
 // Pour les ressources publiques
 app.use(express.static(__dirname + '/public'));
 
+// 404
+app.get('*', function (req, res) {
+    res.status(404).render('404', {
+        user: req.session.user
+    });
+});
+
 // Ecoute sur le port
 app.listen(port, () => {
     console.log(`Le serveur est disponible sur le port ${port}`);
