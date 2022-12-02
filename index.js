@@ -7,7 +7,7 @@ const port = 3000;
 // Sessions
 app.use(session({
     secret: "MySecretSession123.",
-    cookie: {maxAge: 30000},
+    cookie: { maxAge: (3600000 * 5) }, // Cookie expire après 5h
     resave: true,
     saveUninitialized: true
 }))

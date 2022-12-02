@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Accueil</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/accueil.scss">
-        <link rel="stylesheet" href="css/nav.css">
-    </head>
-    <body>
-        <%- include('components/nav', {user: locals.user}) %>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Accueil - Sébastien Pannatier</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body>
+    <%- include('components/nav', {user: locals.user}) %>
+    <header class="pt-5">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5">
+                <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="text-center">
+                        <h1 class="display-4 fw-bold mb-5">Projet&nbsp;<span class="underline">WEBA</span>.</h1>
+                        <p class="fs-5 text-muted mb-5">Par Sébastien Pannatier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section></section>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/startup-modern.js"></script>
+</body>
+
 </html>

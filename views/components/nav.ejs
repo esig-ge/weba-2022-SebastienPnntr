@@ -1,26 +1,15 @@
-<nav class="navbar">
-  <a href="accueil" class="logo">Sebastien Pannatier</a>
-  <div class="nav-links">
-    <ul class="nav-menu">
-      <li><a href="accueil">Accueil</a></li>
-      <% if(locals.user != undefined){ %>
-      <li><a href="liste-client">Liste des clients</a></li>
-      <li><a href="deco">Deconnexion</a></li>
-      <% }else{ %>
-      <li><a href="connexion">Connexion</a></li>
-      <li><a href="inscription">Inscription</a></li>
-      <% } %>
-    </ul>
+<nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+  <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Sébastien Pannatier</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="accueil">Accueil</a></li>
+              <% if(locals.user != undefined){ %>
+              <li class="nav-item"><a class="nav-link" href="liste-client">Liste des clients</a></li>
+              </ul><a class="btn btn-primary shadow" role="button" href="deco">Déconnexion</a>
+              <% }else{ %>
+          </ul><a class="btn btn-primary shadow" role="button" href="inscription">Inscription</a>
+          <a class="btn btn-primary shadow ms-3" role="button" href="connexion">Connexion</a>
+          <% } %>
+      </div>
   </div>
-    <i class='menu-hamburger'>Menu</i>
-
 </nav>
-<header class="header"></header>
-<script>
-  const menuHamburger = document.querySelector(".menu-hamburger");
-const navLinks = document.querySelector(".nav-links");
- 
- menuHamburger.addEventListener('click',()=>{
-        navLinks.classList.toggle('mobile-menu')
-        })
-</script>
