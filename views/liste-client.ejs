@@ -23,11 +23,11 @@
                 <div class="col-md-6">
                     <div>
                         <form class="p-3 p-xl-4" method="post">
-                            <div class="mb-3"><input class="shadow form-control" type="text" id="name-1" name="search" placeholder="Recherche"></div>
+                            <div class="mb-3"><input class="shadow form-control" type="text" id="searchBar" name="search" placeholder="Recherche" oninput="searchUser()"></div>
                             <div class="mb-3">
                                 <ul class="list-unstyled fs-4">
                                     <% userList.forEach(element => { %>
-                                        <li <% if(element.adminUser==true){ __append("style='color:red;'")} %>><a href="edit-user?id=<%= element.idUser %>"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-edit">
+                                        <li class="user-li" <% if(element.adminUser==true){ __append("style='color:red;'")} %>><a href="edit-user?id=<%= element.idUser %>"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-edit">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
@@ -44,6 +44,20 @@
     </section>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/startup-modern.js"></script>
+    <script>
+        const emails = document.getElementsByClassName("user-li");
+        async function searchUser() {
+            let searchParam = await document.getElementById('searchBar').value.toUpperCase();
+            Array.from(emails).forEach(element => {
+                if(element.textContent.toUpperCase().includes(searchParam)){
+                    element.classList.remove('d-none');
+                }
+                else{
+                    element.classList.add('d-none');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
