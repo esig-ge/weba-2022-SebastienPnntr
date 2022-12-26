@@ -32,3 +32,8 @@ async function searchUser() {
         }
     }
 }
+
+let showInfo = () => {
+    console.log("a");
+    $('#infoModal').modal('toggle')
+}
