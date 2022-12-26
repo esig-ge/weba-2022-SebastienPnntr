@@ -23,7 +23,26 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  ...
+                    <form>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="emailModal">Email</label>
+                            <input disabled type="email" class="form-control" id="emailModal" placeholder="Email">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="nomModal">Nom</label>
+                            <input disabled type="text" class="form-control" id="nomModal" placeholder="Nom">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="prenomModal">Prenom</label>
+                            <input disabled type="text" class="form-control" id="prenomModal" placeholder="Prenom">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="telModal">Telephone</label>
+                            <input disabled type="text" class="form-control" id="telModal" placeholder="Telephone">
+                          </div>
+                        </div>
+                      </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" onclick="$('#infoModal').modal('hide')">Fermer</button>
@@ -46,7 +65,7 @@
                             <div class="mb-3">
                                 <ul id="listUser" class="list-unstyled fs-4" style="cursor: pointer;">
                                     <% userList.forEach(element => { %>
-                                        <li class="user-li" onclick="showInfo()" <% if(element.adminUser==true){ __append("style='color:red;'")} %>><a href="edit-user?id=<%= element.idUser %>"></a><i class="fa-solid fa-eye"></i>&nbsp;<%= element.emailUser %></li>
+                                        <li class="user-li" onclick="showInfo(<%= element.idUser %>)" <% if(element.adminUser==true){ __append("style='color:red;'")} %>><i class="fa-solid fa-eye"></i>&nbsp;<%= element.emailUser %></li>
                                     <% }); %>
                                 </ul>
                             </div>

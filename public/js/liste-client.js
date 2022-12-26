@@ -33,7 +33,6 @@ async function searchUser() {
     }
 }
 
-let showInfo = () => {
-    console.log("a");
+let showInfo = idUser => {
     $('#infoModal').modal('toggle')
 }
