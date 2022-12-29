@@ -47,7 +47,10 @@ let showInfo = idUser => {
     rqte.onload = () => {
         if(rqte.status == 200){
             let infoUser = JSON.parse(rqte.responseText);
-            console.log(infoUser);
+            $('#emailModal').val(infoUser.emailUser);
+            $('#nomModal').val(infoUser.nomUser);
+            $('#prenomModal').val(infoUser.prenomUser);
+            $('#telModal').val(infoUser.telUser);
         }else{
             console.log("erreur");
         }
