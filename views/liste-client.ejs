@@ -23,26 +23,27 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="emailModal">Email</label>
-                            <input disabled type="email" class="form-control" id="emailModal" placeholder="Email">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="nomModal">Nom</label>
-                            <input disabled type="text" class="form-control" id="nomModal" placeholder="Nom">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="prenomModal">Prenom</label>
-                            <input disabled type="text" class="form-control" id="prenomModal" placeholder="Prenom">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="telModal">Telephone</label>
-                            <input disabled type="text" class="form-control" id="telModal" placeholder="Telephone">
-                          </div>
-                        </div>
-                      </form>
+                  <div class="fa-3x" id="loader"><i class="fa-solid fa-sync fa-spin"></i></div>
+                  <form id="formModal">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="emailModal">Email</label>
+                        <input disabled type="email" class="form-control" id="emailModal" placeholder="Email">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="nomModal">Nom</label>
+                        <input disabled type="text" class="form-control" id="nomModal" placeholder="Nom">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="prenomModal">Prenom</label>
+                        <input disabled type="text" class="form-control" id="prenomModal" placeholder="Prenom">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="telModal">Telephone</label>
+                        <input disabled type="text" class="form-control" id="telModal" placeholder="Telephone">
+                      </div>
+                    </div>
+                  </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" onclick="$('#infoModal').modal('hide')">Fermer</button>

@@ -33,24 +33,29 @@ async function searchUser() {
     }
 }
 
-let showInfo = idUser => {
+let showInfo = async idUser => {
+    $('#formModal').hide();
+    $('#loader').show();
+
     $('#infoModal').modal('toggle');
 
     // Création de l'objet xml truc
-    let rqte = new XMLHttpRequest();
+    let rqte = await new XMLHttpRequest();
     // Config de la requete
-    rqte.open("GET", "getInfoUser?idUser="+idUser, true);
+    await rqte.open("GET", "getInfoUser?idUser="+idUser, true);
     // Envoi de la requete
-    rqte.send();
+    await rqte.send();
 
     // Reponse
-    rqte.onload = () => {
+    rqte.onload = async() => {
         if(rqte.status == 200){
-            let infoUser = JSON.parse(rqte.responseText);
+            let infoUser = await JSON.parse(rqte.responseText);
             $('#emailModal').val(infoUser.emailUser);
             $('#nomModal').val(infoUser.nomUser);
             $('#prenomModal').val(infoUser.prenomUser);
             $('#telModal').val(infoUser.telUser);
+            $('#formModal').show();
+            $('#loader').hide();
         }else{
             console.log("erreur");
         }
