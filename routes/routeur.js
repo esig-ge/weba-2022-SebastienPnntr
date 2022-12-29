@@ -10,6 +10,7 @@ const { registerView, getRegisterForm } = require('../controllers/inscription-co
 const { listeClientView } = require('../controllers/liste-client-controller')
 const { accueilView } = require('../controllers/accueil-controller')
 const { deco } = require('../controllers/deco-controller')
+const { getInfoUser } = require('../controllers/ajax/get-info-user-controller');
 
 // Router GET
 const router = express.Router();
@@ -18,6 +19,7 @@ router.get('/connexion', loginView);
 router.get('/liste-client', listeClientView);
 router.get('/accueil', accueilView);
 router.get('/deco', deco);
+router.get('/getInfoUser', getInfoUser);
 
 // Router POST
 router.post('/inscription', urlencodedParser, getRegisterForm);

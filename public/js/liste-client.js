@@ -34,5 +34,22 @@ async function searchUser() {
 }
 
 let showInfo = idUser => {
-    $('#infoModal').modal('toggle')
+    $('#infoModal').modal('toggle');
+
+    // Création de l'objet xml truc
+    let rqte = new XMLHttpRequest();
+    // Config de la requete
+    rqte.open("GET", "getInfoUser?idUser="+idUser, true);
+    // Envoi de la requete
+    rqte.send();
+
+    // Reponse
+    rqte.onload = () => {
+        if(rqte.status == 200){
+            let infoUser = JSON.parse(rqte.responseText);
+            console.log(infoUser);
+        }else{
+            console.log("erreur");
+        }
+    }
 }
