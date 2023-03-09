@@ -4,8 +4,8 @@ const listUser = document.getElementById("listUser");
 
 searchBar.addEventListener("input", searchUser);
 
-async function searchUser() {
-    let searchParam = await searchBar.value.toUpperCase();
+function searchUser() {
+    let searchParam = searchBar.value.toUpperCase();
     let nbHide = 0;
     Array.from(emails).forEach(element => {
         if (element.textContent.toUpperCase().includes(searchParam)) {
@@ -33,30 +33,30 @@ async function searchUser() {
     }
 }
 
-let showInfo = async idUser => {
+let showInfo = idUser => {
     $('#formModal').hide();
     $('#loader').show();
 
     $('#infoModal').modal('toggle');
 
     // Création de l'objet xml truc
-    let rqte = await new XMLHttpRequest();
+    let rqte = new XMLHttpRequest();
     // Config de la requete
-    await rqte.open("GET", "getInfoUser?idUser="+idUser, true);
+    rqte.open("GET", "getInfoUser?idUser=" + idUser, true);
     // Envoi de la requete
-    await rqte.send();
+    rqte.send();
 
     // Reponse
-    rqte.onload = async() => {
-        if(rqte.status == 200){
-            let infoUser = await JSON.parse(rqte.responseText);
+    rqte.onload = () => {
+        if (rqte.status == 200) {
+            let infoUser = JSON.parse(rqte.responseText);
             $('#emailModal').val(infoUser.emailUser);
             $('#nomModal').val(infoUser.nomUser);
             $('#prenomModal').val(infoUser.prenomUser);
             $('#telModal').val(infoUser.telUser);
             $('#formModal').show();
             $('#loader').hide();
-        }else{
+        } else {
             console.log("erreur");
         }
     }
