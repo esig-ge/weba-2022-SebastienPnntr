@@ -43,10 +43,7 @@ let showInfo = idUser => {
     let rqte = new XMLHttpRequest();
     // Config de la requete
     rqte.open("GET", "getInfoUser?idUser=" + idUser, true);
-    // Envoi de la requete
-    rqte.send();
-
-    // Reponse
+    // Configuration du traitement de la réponse
     rqte.onload = () => {
         if (rqte.status == 200) {
             let infoUser = JSON.parse(rqte.responseText);
@@ -60,4 +57,6 @@ let showInfo = idUser => {
             console.log("erreur");
         }
     }
+    // Envoi de la requete
+    rqte.send();
 }
